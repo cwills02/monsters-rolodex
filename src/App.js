@@ -50,3 +50,38 @@ export default App;
 // in order to console.log successfully and see up to date info we have to pass the console.log in as the 2nd argument into the onChange property w/ the setState function
 // REACT HAS  synthetic events such as onChange, which are first communicated to the virtual DOM 
 // react is smart as it figures out the best way to update the DOM, we only communicate with the virtual DOM; we just declare that we want an update but leave it to the react bot to determine the best way to do this
+
+
+// any time you want to use setState to update the state and there are props or state to use within the update, you should use a function instead of an object
+
+/*
+it used to be that if you ever want to use this.props inside of the constructor you must pass it as props into the constructor() and super()
+
+class App extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      meaningOfLife: 47 + this.props.increment,
+    }
+    this.props
+  }
+
+  can also write state as
+
+  state = {
+    meaningOfLife: 47
+  }
+  however you will not have acces to the props inside when you do it this way
+
+handleClick = () => {
+  this.setState((prevState, prevProps) => {
+    return {meaningOfLife: prevState.meaningOfLife + prevProps.increment + 1}
+  },
+    () => console.log(this.state.meaningOfLife)
+  )
+}
+
+}
+
+in above function this is if increment was passed down from a parent component
+*/
